@@ -56,3 +56,6 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'carrierwave'
+
+# 日本語化のために入れる
+gem 'i18n_generators'

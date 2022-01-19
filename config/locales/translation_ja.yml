@@ -1,0 +1,24 @@
+ja:
+  activerecord:
+    models:
+      book: 書籍  #g
+
+    attributes:
+      book:
+        author: 著者  #g
+        memo: メモ  #g
+        picture: 写真  #g
+        title: タイトル  #g
+        new_book: 書籍を追加
+        editing_book: 登録内容を変更する
+  action:
+    show: 閲覧
+    edit: 編集
+    destroy: 削除
+    back: 戻る
+  notice:
+    destroy_confirm: 本当によろしいですか？
+    error_explanation: 下記の理由により登録ができませんでした
+    create: 本の登録が完了しました。
+    update: 登録内容を変更しました。
+    destroy: 本を削除しました。
