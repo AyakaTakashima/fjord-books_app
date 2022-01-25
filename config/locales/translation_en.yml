@@ -19,6 +19,6 @@ en:
   notice:
     destroy_confirm: Are you sure?
     error_explanation: prohibited this book from being saved
-    create: Book was successfully created.
-    update: Book was successfully updated.
-    destroy: Book was successfully destroyed.
+    create: was successfully created.
+    update: was successfully updated.
+    destroy: was successfully destroyed.

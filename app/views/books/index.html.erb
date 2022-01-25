@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= Book.model_name.human %></h1>
+<h1><%= t('activerecord.models.book') %></h1>
 
 <table>
   <thead>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to Book.human_attribute_name(:new_book), new_book_path %>
+<%= link_to t('action.new_book'), new_book_path %>
