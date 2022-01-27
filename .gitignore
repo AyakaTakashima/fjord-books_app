@@ -43,7 +43,4 @@ yarn-debug.log*
 /public/uploads/*
 .env
 
-.DS_Store
-Gemfile
-Gemfile.lock
-.gitignore
+
