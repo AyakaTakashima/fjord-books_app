@@ -1,0 +1,24 @@
+en:
+  activerecord:
+    models:
+      book: Book  #g
+
+    attributes:
+      book:
+        author: Author  #g
+        memo: Memo  #g
+        picture: Picture  #g
+        title: Title  #g
+        new_book: New book
+        editing_book: Editing Book
+  action:
+    show: show
+    edit: edit
+    destroy: destroy
+    back: back
+  notice:
+    destroy_confirm: Are you sure?
+    error_explanation: prohibited this book from being saved
+    create: was successfully created.
+    update: was successfully updated.
+    destroy: was successfully destroyed.
