@@ -46,6 +46,8 @@ group :development do
   gem 'web-console', '>= 4.1.0'
   # devise を使ってユーザー認証を実装する
   gem 'devise'
+  # deviseを日本語化する
+  gem 'devise-i18n'
 end
 
 group :test do
