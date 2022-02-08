@@ -1,11 +1,13 @@
-<h1>ユーザー一覧</h1>
+<h1><%= t('user.user_list_page') %></h1>
 
 <% @users.each do |user| %>
-  <%= link_to user.name, user %>
+  <%= link_to user.email, user %>
   <br>
 <% end %>
 
 <%= paginate @users %>
 
-<p><%= link_to '戻る', "/books" %></p>
+<p><%= link_to t('user.edit_my_page'), "/users/edit" %></p>
+
+<p><%= link_to t('views.common.back'), "/books" %></p>
 

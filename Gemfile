@@ -48,6 +48,8 @@ group :development do
   gem 'devise'
   # deviseを日本語化する
   gem 'devise-i18n'
+  # メールが配信されたか確認する
+  gem 'letter_opener_web'
 end
 
 group :test do

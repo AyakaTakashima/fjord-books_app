@@ -1,5 +1,5 @@
-<p><%= link_to 'マイページ', "/users/#{current_user.id}" %> <%= link_to 'ユーザー一覧を見る', "/users" %></p>
-<p><%= current_user.name %> でログインしています。</p>
+<p><%= link_to t('user.my_page'), "/users/#{current_user.id}" %> <%= link_to t('user.user_list_page'), "/users" %></p>
+<p><%= current_user.email %> <%= t('user.who_login_message') %></p>
 
 <h1><%= Book.model_name.human %></h1>
 
