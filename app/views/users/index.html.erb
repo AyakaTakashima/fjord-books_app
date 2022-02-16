@@ -7,7 +7,6 @@
 
 <%= paginate @users %>
 
-<p><%= link_to t('user.edit_my_page'), "/users/edit" %></p>
+<p><%= link_to t('user.edit_my_page'), edit_user_registration_path %></p>
 
-<p><%= link_to t('views.common.back'), "/books" %></p>
-
+<p><%= link_to t('views.common.back'), books_path %></p>

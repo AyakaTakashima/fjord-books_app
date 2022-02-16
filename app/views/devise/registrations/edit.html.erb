@@ -4,22 +4,22 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field">
-    <%= t('user.name') %><br />
+    <%= f.label :name %><br />
     <%= f.text_field :name ,autocomplete: "name"%>
   </div>
 
   <div class="field">
-    <%= t('user.introduction') %><br />
+    <%= f.label :introduction %><br />
     <%= f.text_area :introduction, autocomplete: "introduction" %>
   </div>
   
   <div class="field">
-    <%= t('user.zip_code') %><br />
+    <%= f.label :zip_code %><br />
     <%= f.text_field :zip_code, autocomplete: "zipcode" %>
   </div>
   
   <div class="field">
-    <%= t('user.address') %><br />
+    <%= f.label :address %><br />
     <%= f.text_field :address, autocomplete: "address" %>
   </div>
 

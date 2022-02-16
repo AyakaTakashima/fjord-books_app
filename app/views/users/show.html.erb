@@ -1,12 +1,12 @@
 <h1><%= t('user.profile')%></h1>
-<p><%= t('user.name')%> : <%= @user.name %></p>
-<p><%= t('user.email')%> : <%= @user.email %></p>
-<p><%= t('user.zip_code')%> : 〒 <%= @user.zip_code %></p>
-<p><%= t('user.address')%> : <%= @user.address %></p>
-<p><%= t('user.introduction')%> : <%= @user.introduction %></p>
+<p><%= User.human_attribute_name(:name)%> : <%= @user.name %></p>
+<p><%= User.human_attribute_name(:email)%> : <%= @user.email %></p>
+<p><%= User.human_attribute_name(:zip_code)%> : 〒 <%= @user.zip_code %></p>
+<p><%= User.human_attribute_name(:address)%> : <%= @user.address %></p>
+<p><%= User.human_attribute_name(:introduction)%> : <%= @user.introduction %></p>
 
-<p><%= link_to t('user.go_to_top_page'), "/books" %></p>
-<p><%= link_to t('user.user_list_page'), "/users" %></p>
+<p><%= link_to t('user.go_to_top_page'), books_path %></p>
+<p><%= link_to t('user.user_list_page'), users_path %></p>
 
 
 
