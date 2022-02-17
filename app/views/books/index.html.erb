@@ -1,4 +1,4 @@
-<p><%= link_to t('user.my_page'), user_path(current_user) %> <%= link_to t('user.user_list_page'), user_registration_path %></p>
+<p><%= link_to t('user.my_page'), user_path(current_user) %> <%= link_to t('user.user_list_page'), users_path %></p>
 <p><%= current_user.email %> <%= t('user.who_login_message') %></p>
 
 <h1><%= Book.model_name.human %></h1>

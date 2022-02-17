@@ -20,7 +20,7 @@
   <footer>
   <div>
     <% if user_signed_in? %>
-      <p><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></p>
+      <p><%= link_to t('user.logout'), destroy_user_session_path, method: :delete %></p>
     <% end %>
   </div>
   </footer>
