@@ -44,11 +44,11 @@ group :development do
   gem 'rubocop-rails', require: false
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
-  # devise を使ってユーザー認証を実装する
+# devise を使ってユーザー認証を実装する
   gem 'devise'
-  # deviseを日本語化する
+# deviseを日本語化する
   gem 'devise-i18n'
-  # メールの内容をブラウザで確認する
+# メールの内容をブラウザで確認する
   gem 'letter_opener_web'
 end
 
@@ -65,3 +65,8 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'carrierwave'
 gem 'kaminari'
+# devise を使ってユーザー認証を実装する
+#gem 'devise'
+# deviseを日本語化する
+#gem 'devise-i18n'
+
