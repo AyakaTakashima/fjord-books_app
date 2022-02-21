@@ -70,7 +70,8 @@ end
 
 # 画像は生成も読み込みも時間がかかるので一部のデータだけにする
 User.order(:id).each.with_index(1) do |user, n|
-  next unless n % 8 == 0
+  next unless (n % 8).zero?
+
   image_url = Faker::Avatar.image(slug: user.email, size: '150x150')
   user.avatar.attach(io: URI.parse(image_url).open, filename: 'avatar.png')
 end
@@ -78,9 +79,9 @@ end
 # フォロー関係のサンプルデータ
 users = User.all
 user  = users.first
-following = users[2..50]
+followings = users[2..50]
 followers = users[3..40]
-following.each { |following| user.follow(following) }
+followings.each { |following| user.follow(following) }
 followers.each { |follower| follower.follow(user) }
 
 puts '初期データの投入が完了しました。' # rubocop:disable Rails/Output

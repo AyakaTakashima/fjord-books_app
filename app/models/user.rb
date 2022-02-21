@@ -6,16 +6,16 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
-  # 能動的関係
-  has_many :active_follows, class_name:  "Follow",
-            foreign_key: "follower_id",
-            dependent:   :destroy
+  has_many :active_follows, class_name: 'Follow',
+                            foreign_key: 'follower_id',
+                            dependent: :destroy,
+                            inverse_of: :follower
   has_many :followings, through: :active_follows
 
-  #受動的関係
-  has_many :passive_follows, class_name:  "Follow",
-            foreign_key: "following_id",
-            dependent:   :destroy
+  has_many :passive_follows, class_name: 'Follow',
+                             foreign_key: 'following_id',
+                             dependent: :destroy,
+                             inverse_of: :following
   has_many :followers, through: :passive_follows
 
   def follow(other_user)
