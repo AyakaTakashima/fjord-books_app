@@ -14,7 +14,7 @@ class User < ApplicationRecord
 
   #受動的関係
   has_many :passive_follows, class_name:  "Follow",
-            foreign_key: "follower_id",
+            foreign_key: "following_id",
             dependent:   :destroy
   has_many :followers, through: :passive_follows
 
@@ -27,6 +27,6 @@ class User < ApplicationRecord
   end
 
   def following?(other_user)
-    following.include?(other_user)
+    followings.include?(other_user)
   end
 end
