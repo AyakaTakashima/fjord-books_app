@@ -61,7 +61,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'carrierwave'
 gem 'kaminari'
 # devise を使ってユーザー認証を実装する
-#gem 'devise'
+gem 'devise'
 # deviseを日本語化する
-#gem 'devise-i18n'
+gem 'devise-i18n'
 
