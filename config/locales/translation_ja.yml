@@ -9,3 +9,21 @@ ja:
         memo: メモ  #g
         picture: 画像  #g
         title: 題名  #g
+      user:
+        name: ユーザー名
+        email: Eメール
+        zip_code: 郵便番号
+        address: 住所
+        introduction: 自己紹介文
+    
+  user:
+    password: パスワード
+    user_list_page: ユーザー一覧
+    profile: プロフィール
+    my_page: マイページ
+    who_login_message: でログインしています。
+    edit_my_page: マイページを編集
+    go_to_top_page: トップへ戻る
+    user_list_page: ユーザー一覧
+    logout: ログアウト
+
