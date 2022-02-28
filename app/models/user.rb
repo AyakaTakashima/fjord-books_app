@@ -18,6 +18,8 @@ class User < ApplicationRecord
                              inverse_of: :following
   has_many :followers, through: :passive_follows
 
+  paginates_per 10
+
   def follow(other_user)
     active_follows.create(following_id: other_user.id)
   end

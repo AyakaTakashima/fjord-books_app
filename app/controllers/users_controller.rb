@@ -9,15 +9,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  PER = 10
-  private_constant :PER
   def followings
-    user = User.find(params[:id])
-    @users = user.followings.page(params[:page]).per(PER)
+    user = User.with_attached_avatar.find(params[:id])
+    @users = user.followings.page(params[:page])
   end
 
   def followers
-    user = User.find(params[:id])
-    @users = user.followers.page(params[:page]).per(PER)
+    user = User.with_attached_avatar.find(params[:id])
+    @users = user.followers.page(params[:page])
   end
 end
