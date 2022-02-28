@@ -85,4 +85,15 @@ User.order(id: :desc).each do |user|
   end
 end
 
+USER_NUMBER=55
+Report.transaction do
+  10.times do |n|
+    Report.create!(
+      title: "日報#{n}",
+      content: Faker::Dessert.variety,
+      user_id: "#{ rand(1..USER_NUMBER) }"
+    )
+  end
+end
+
 puts '初期データの投入が完了しました。' # rubocop:disable Rails/Output

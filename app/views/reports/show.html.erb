@@ -4,6 +4,11 @@
 </p>
 
 <p>
+  <strong><%= Report.human_attribute_name(:poster)%>:</strong>
+  <%= link_to @report.user.name, @report.user %>
+</p>
+
+<p>
   <strong><%= Report.human_attribute_name(:title) %>:</strong>
   <%= @report.title %>
 </p>
@@ -13,5 +18,7 @@
   <%= @report.content %>
 </p>
 
-<%= link_to t('views.common.edit'), edit_report_path(@report) %> |
+<% if current_user == @report.user %>
+  <%= link_to t('views.common.edit'), edit_report_path(@report) %> |
+<% end %>
 <%= link_to t('views.common.back'), reports_path %>
