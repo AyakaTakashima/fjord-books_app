@@ -20,7 +20,7 @@ class User < ApplicationRecord
 
   paginates_per 10
 
-  def follow(other_user)
+  def follow!(other_user)
     active_follows.create(following_id: other_user.id)
   end
 
