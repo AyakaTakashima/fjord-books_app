@@ -1,0 +1,23 @@
+<h2><%= Comment.model_name.human %></h2>
+
+<% if commentable.comments.blank? %>
+  <p><%= t('views.common.no_comment_notice') %></p>
+<% else %>
+  <% commentable.comments.each do |comment| %>
+    <li>
+    <% if comment.user.name.blank? %>
+      <strong><%= link_to comment.user.email, comment.user %>:</strong>
+    <%else%>
+      <strong><%= link_to comment.user.name, comment.user %>:</strong>
+    <% end %> 
+    
+    <%= comment.content %>(<%= comment.created_at.to_s(:datetime_jp) %>)
+  
+    <% if current_user == comment.user %>
+      <%= link_to t('views.common.edit'), edit_polymorphic_path([commentable, comment])%>
+      <%= link_to t('views.common.destroy'), polymorphic_path([commentable, comment]), method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
+    <% end %>
+    </li>
+  <% end %>
+<% end %>
+

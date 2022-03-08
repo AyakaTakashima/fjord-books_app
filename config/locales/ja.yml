@@ -211,6 +211,8 @@ ja:
       edit: 編集
       destroy: 削除
       new: 新規作成
+      new_comment: 新規コメント
+      no_comment_notice: コメントはありません。
       back: 戻る
       delete_confirm: よろしいですか？
       title_new: "%{name}の新規作成"

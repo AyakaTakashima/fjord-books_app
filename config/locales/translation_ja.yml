@@ -4,6 +4,7 @@ ja:
       book: 本  #g
       user: ユーザ
       report: 日報
+      comment: コメント
 
     attributes:
       book:
@@ -22,4 +23,3 @@ ja:
         content: 内容
         created_at: 投稿日
         poster: 投稿者
-        
