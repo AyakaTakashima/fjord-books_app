@@ -70,7 +70,8 @@ end
 
 # 画像は生成も読み込みも時間がかかるので一部のデータだけにする
 User.order(:id).each.with_index(1) do |user, n|
-  next unless n % 8 == 0
+  next unless (n % 8).zero?
+
   image_url = Faker::Avatar.image(slug: user.email, size: '150x150')
   user.avatar.attach(io: URI.parse(image_url).open, filename: 'avatar.png')
 end
@@ -85,13 +86,13 @@ User.order(id: :desc).each do |user|
   end
 end
 
-USER_NUMBER=55
+USER_NUMBER = 55
 Report.transaction do
   10.times do |n|
     Report.create!(
       title: "日報#{n}",
       content: Faker::Dessert.variety,
-      user_id: "#{ rand(1..USER_NUMBER) }"
+      user_id: rand(1..USER_NUMBER).to_s
     )
   end
 end

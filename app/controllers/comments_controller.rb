@@ -1,7 +1,11 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   # POST /reports/1/comments
   # POST /books/1/comments
   before_action :set_comment, only: %i[edit update destroy]
+
+  def edit; end
 
   def create
     @comment = @commentable.comments.create(comment_params)
@@ -30,6 +34,7 @@ class CommentsController < ApplicationController
   end
 
   private
+
   def set_comment
     @comment = current_user.comments.find(params[:id])
   end
