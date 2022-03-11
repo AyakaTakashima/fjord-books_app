@@ -3,7 +3,13 @@
 module Commentable
   extend ActiveSupport::Concern
 
-  def edit; end
+  included do
+    before_action :set_comment, only: %i[edit update destroy]
+  end
+
+  def edit
+    render '/comments/edit'
+  end
 
   def create
     @comment = @commentable.comments.create(comment_params)
