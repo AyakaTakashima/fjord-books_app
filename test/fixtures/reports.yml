@@ -4,8 +4,3 @@ alice_report:
   user: alice
   title: テスト日報1
   content: この日報は一番最初に登録されている日報です
-
-#two:
-#  user: two
-#  title: MyString
-#  content: MyText
