@@ -18,16 +18,14 @@ module Commentable
 
     if @comment.save
       redirect_to @commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
+    elsif @render == 'reports/show'
+      @report = Report.find(params[:report_id])
+      flash.now[:alert] = t('errors.format', attribute: Comment.model_name.human, message: t('errors.messages.empty'))
+      render @render
     else
-      if @render == 'reports/show'
-        @report = Report.find(params[:report_id])
-        flash.now[:alert] = t('errors.format', attribute: Comment.model_name.human, message: t('errors.messages.empty'))
-        render @render
-      else
-        @book = Book.find(params[:book_id])
-        flash.now[:alert] = t('errors.format', attribute: Comment.model_name.human, message: t('errors.messages.empty'))
-        render @render
-      end
+      @book = Book.find(params[:book_id])
+      flash.now[:alert] = t('errors.format', attribute: Comment.model_name.human, message: t('errors.messages.empty'))
+      render @render
     end
   end
 
