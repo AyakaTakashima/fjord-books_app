@@ -10,4 +10,8 @@ class Reports::CommentsController < ApplicationController
   def set_commentable
     @commentable = Report.find(params[:report_id])
   end
+
+  def set_render
+    @render = 'reports/show'
+  end
 end

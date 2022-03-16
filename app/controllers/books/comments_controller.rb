@@ -10,4 +10,8 @@ class Books::CommentsController < ApplicationController
   def set_commentable
     @commentable = Book.find(params[:book_id])
   end
+
+  def set_render
+    @render = 'books/show'
+  end
 end

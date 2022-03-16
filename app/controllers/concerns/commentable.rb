@@ -5,6 +5,7 @@ module Commentable
 
   included do
     before_action :set_comment, only: %i[edit update destroy]
+    before_action :set_render, only: %i[create]
   end
 
   def edit
@@ -18,7 +19,15 @@ module Commentable
     if @comment.save
       redirect_to @commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
     else
-      redirect_to @commentable, notice: t('errors.format', attribute: Comment.model_name.human, message: t('errors.messages.empty'))
+      if @render == 'reports/show'
+        @report = Report.find(params[:report_id])
+        flash.now[:alert] = t('errors.format', attribute: Comment.model_name.human, message: t('errors.messages.empty'))
+        render @render
+      else
+        @book = Book.find(params[:book_id])
+        flash.now[:alert] = t('errors.format', attribute: Comment.model_name.human, message: t('errors.messages.empty'))
+        render @render
+      end
     end
   end
 
