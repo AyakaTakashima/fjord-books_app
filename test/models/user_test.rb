@@ -16,7 +16,7 @@ class UserTest < ActiveSupport::TestCase
     she = User.create!(email: 'she@example.com', password: 'password')
 
     assert_not me.following?(she)
-    Relationship.create(following_id: she.id, follower_id: me.id)
+    Relationship.create!(following_id: she.id, follower_id: me.id)
     assert me.following?(she)
   end
 
