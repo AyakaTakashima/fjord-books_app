@@ -12,8 +12,8 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'following? method should return true if me followed she' do
-    me = User.create(email: 'me@example.com', password: 'password')
-    she = User.create(email: 'she@example.com', password: 'password')
+    me = User.create!(email: 'me@example.com', password: 'password')
+    she = User.create!(email: 'she@example.com', password: 'password')
 
     assert_not me.following?(she)
     Relationship.create(following_id: she.id, follower_id: me.id)
@@ -21,17 +21,17 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'followed_by? method should return true if me was followed she' do
-    me = User.create(email: 'me@example.com', password: 'password')
-    she = User.create(email: 'she@example.com', password: 'password')
+    me = User.create!(email: 'me@example.com', password: 'password')
+    she = User.create!(email: 'she@example.com', password: 'password')
 
     assert_not me.followed_by?(she)
-    Relationship.create(following_id: me.id, follower_id: she.id)
+    Relationship.create!(following_id: me.id, follower_id: she.id)
     assert me.followed_by?(she)
   end
 
   test 'follow method should follow someone' do
-    me = User.create(email: 'me@example.com', password: 'password')
-    she = User.create(email: 'she@example.com', password: 'password')
+    me = User.create!(email: 'me@example.com', password: 'password')
+    she = User.create!(email: 'she@example.com', password: 'password')
 
     assert_not me.following?(she)
     me.follow(she)
@@ -39,8 +39,8 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'unfollow method should unfollow someone' do
-    me = User.create(email: 'me@example.com', password: 'password')
-    she = User.create(email: 'she@example.com', password: 'password')
+    me = User.create!(email: 'me@example.com', password: 'password')
+    she = User.create!(email: 'she@example.com', password: 'password')
 
     me.follow(she)
     assert me.following?(she)

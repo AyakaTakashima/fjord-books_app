@@ -5,6 +5,7 @@ require 'application_system_test_case'
 class ReportsTest < ApplicationSystemTestCase
   setup do
     @report = reports(:alice_report)
+    @report.created_at = Time.zone.local(2022, 3, 23)
 
     visit root_url
     fill_in 'Eメール', with: 'alice@example.com'
@@ -20,7 +21,7 @@ class ReportsTest < ApplicationSystemTestCase
     assert_text '作成者'
     assert_text 'alice'
     assert_text '作成日'
-    assert_instance_of Date, @report.created_on
+    assert_text '2022/03/23'
   end
 
   test 'creating a Report' do
@@ -39,6 +40,9 @@ class ReportsTest < ApplicationSystemTestCase
 
   test 'updating a Report' do
     visit reports_url
+    click_on '詳細'
+    assert_text 'テスト日報1'
+    assert_text 'この日報は一番最初に登録されている日報です'
     click_on '編集', match: :prefer_exact
 
     assert_selector 'h1', text: '日報の編集'
@@ -53,10 +57,12 @@ class ReportsTest < ApplicationSystemTestCase
 
   test 'destroying a Report' do
     visit reports_url
+    assert_text 'テスト日報1'
     page.accept_confirm do
       click_on '削除'
     end
 
     assert_text '日報が削除されました。'
+    assert_no_text 'テスト日報1'
   end
 end

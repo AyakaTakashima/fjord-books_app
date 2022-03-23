@@ -34,6 +34,9 @@ class BooksTest < ApplicationSystemTestCase
 
   test 'updating a Book' do
     visit books_url
+    assert_text '桃太郎'
+    assert_text 'モモから男の子が生まれる話'
+    assert_text 'おじいさん'
     click_on '編集', match: :prefer_exact
 
     fill_in 'タイトル', with: 'となりのトトロ'
@@ -49,10 +52,16 @@ class BooksTest < ApplicationSystemTestCase
 
   test 'destroying a Book' do
     visit books_url
+    assert_text '桃太郎'
+    assert_text 'モモから男の子が生まれる話'
+    assert_text 'おじいさん'
     page.accept_confirm do
       click_on '削除'
     end
 
     assert_text '本が削除されました。'
+    assert_no_text '桃太郎'
+    assert_no_text 'モモから男の子が生まれる話'
+    assert_no_text 'おじいさん'
   end
 end
