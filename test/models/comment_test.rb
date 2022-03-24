@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class BookTest < ActiveSupport::TestCase
+class CommentTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

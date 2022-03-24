@@ -1,0 +1,11 @@
+<h3><%= t('views.common.new_comment')%></h3>
+
+<%= form_with(model: [commentable, Comment.new]) do |f| %>
+  <div class="field">
+    <%= f.text_area :content %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
