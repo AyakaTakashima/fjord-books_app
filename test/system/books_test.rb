@@ -4,44 +4,64 @@ require 'application_system_test_case'
 
 class BooksTest < ApplicationSystemTestCase
   setup do
-    @book = books(:one)
+    @book = books(:momotaro)
+
+    visit root_url
+    fill_in 'Eメール', with: 'alice@example.com'
+    fill_in 'パスワード', with: 'password'
+    click_button 'ログイン'
   end
 
   test 'visiting the index' do
     visit books_url
-    assert_selector 'h1', text: 'Books'
+    assert_selector 'h1', text: '本'
   end
 
   test 'creating a Book' do
     visit books_url
-    click_on 'New Book'
+    click_on '新規作成'
 
-    fill_in 'Memo', with: @book.memo
-    fill_in 'Title', with: @book.title
-    click_on 'Create Book'
+    fill_in 'タイトル', with: '３匹の子ぶた'
+    fill_in 'メモ', with: '３匹の子ぶたの生き様を描いた話'
+    fill_in '著者', with: 'オオカミさん'
+    click_on '登録する'
 
-    assert_text 'Book was successfully created'
-    click_on 'Back'
+    assert_text '本が作成されました。'
+    assert_text '３匹の子ぶた'
+    assert_text '３匹の子ぶたの生き様を描いた話'
+    assert_text 'オオカミさん'
   end
 
   test 'updating a Book' do
     visit books_url
-    click_on 'Edit', match: :first
+    assert_text '桃太郎'
+    assert_text 'モモから男の子が生まれる話'
+    assert_text 'おじいさん'
+    click_on '編集', match: :prefer_exact
 
-    fill_in 'Memo', with: @book.memo
-    fill_in 'Title', with: @book.title
-    click_on 'Update Book'
+    fill_in 'タイトル', with: 'となりのトトロ'
+    fill_in 'メモ', with: 'トトロっていいよね'
+    fill_in '著者', with: 'さつきとメイ'
+    click_on '更新する'
 
-    assert_text 'Book was successfully updated'
-    click_on 'Back'
+    assert_text '本が更新されました。'
+    assert_text 'となりのトトロ'
+    assert_text 'トトロっていいよね'
+    assert_text 'さつきとメイ'
   end
 
   test 'destroying a Book' do
     visit books_url
+    assert_text '桃太郎'
+    assert_text 'モモから男の子が生まれる話'
+    assert_text 'おじいさん'
     page.accept_confirm do
-      click_on 'Destroy', match: :first
+      click_on '削除'
     end
 
-    assert_text 'Book was successfully destroyed'
+    assert_text '本が削除されました。'
+    assert_no_text '桃太郎'
+    assert_no_text 'モモから男の子が生まれる話'
+    assert_no_text 'おじいさん'
   end
 end
