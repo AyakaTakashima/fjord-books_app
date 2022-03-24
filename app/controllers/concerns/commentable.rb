@@ -7,6 +7,18 @@ module Commentable
     before_action :set_comment, only: %i[edit update destroy]
   end
 
+  def create
+    @comment = @commentable.comments.create(comment_params)
+    @comment.user = current_user
+
+    if @comment.save
+      redirect_to @commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
+    else
+      flash.now[:alert] = t('errors.format', attribute: Comment.model_name.human, message: t('errors.messages.empty'))
+      render @render
+    end
+  end
+
   def edit
     render '/comments/edit'
   end

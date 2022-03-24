@@ -4,6 +4,7 @@
   <p><%= t('views.common.no_comment_notice') %></p>
 <% else %>
   <% commentable.comments.each do |comment| %>
+    <% next if comment.new_record?%>
     <li>
     <% if comment.user.name.blank? %>
       <strong><%= link_to comment.user.email, comment.user %>:</strong>
